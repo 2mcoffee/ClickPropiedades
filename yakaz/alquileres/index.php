@@ -22,24 +22,24 @@
  
     $query = "SELECT  
 				CASE
-					WHEN C.descripcion = 'DEPARTAMENTOS' THEN CONCAT('Departamento en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'CASAS' THEN CONCAT('Casa en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'PH' THEN CONCAT('PH en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'QUINTAS' THEN CONCAT('Quinta en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'LOTES' THEN CONCAT('Lote en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'CAMPOS' THEN CONCAT('Campo en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'CHACRAS' THEN CONCAT('Chacra en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'GALPONES' THEN CONCAT('Galpon en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'LOCALES' THEN CONCAT('Local en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'OFICINAS' THEN CONCAT('Oficina en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'CONSULTORIOS' THEN CONCAT('Consultorio en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'CHALETS' THEN CONCAT('Chalet en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'DUPLEX' THEN CONCAT('Duplex en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'TRIPLEX' THEN CONCAT('Triplex en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'MULTIFAMILIAR' THEN CONCAT('Multifamiliar en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'EMPRENDIMIENTOS' THEN CONCAT('Emprendimiento en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'FONDO DE COMERCIO' THEN CONCAT('Fondo de comercio en venta en ', LOWER(E.descripcion))
-					WHEN C.descripcion = 'COCHERAS' THEN CONCAT('Cochera en venta en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'DEPARTAMENTOS' THEN CONCAT('Departamento en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'CASAS' THEN CONCAT('Casa en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'PH' THEN CONCAT('PH en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'QUINTAS' THEN CONCAT('Quinta en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'LOTES' THEN CONCAT('Lote en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'CAMPOS' THEN CONCAT('Campo en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'CHACRAS' THEN CONCAT('Chacra en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'GALPONES' THEN CONCAT('Galpon en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'LOCALES' THEN CONCAT('Local en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'OFICINAS' THEN CONCAT('Oficina en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'CONSULTORIOS' THEN CONCAT('Consultorio en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'CHALETS' THEN CONCAT('Chalet en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'DUPLEX' THEN CONCAT('Duplex en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'TRIPLEX' THEN CONCAT('Triplex en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'MULTIFAMILIAR' THEN CONCAT('Multifamiliar en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'EMPRENDIMIENTOS' THEN CONCAT('Emprendimiento en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'FONDO DE COMERCIO' THEN CONCAT('Fondo de comercio en alquiler en ', LOWER(E.descripcion))
+					WHEN C.descripcion = 'COCHERAS' THEN CONCAT('Cochera en alquiler en ', LOWER(E.descripcion))
 				END as titulo,
 				CONCAT('http://clickpropiedades.com/DetailController.php?destino=',A.id_aviso) as link, 
 				A.descripcion as descripcion,
@@ -53,7 +53,7 @@
 				ON D.id_tipo_operacion = B.id_tipo_operacion
 			INNER JOIN localidades E
 				ON E.id_localidad = A.id_localidad
-			WHERE D.id_tipo_operacion = 1 && A.fecha_alta BETWEEN NOW() - INTERVAL 30 DAY AND NOW()
+			WHERE D.id_tipo_operacion = 2 && A.fecha_alta BETWEEN NOW() - INTERVAL 30 DAY AND NOW()
 			ORDER BY A.fecha_alta DESC";
 
     $result = mysql_query($query) or die ("Error: No se logro ejecutar el query");
